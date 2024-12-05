@@ -197,7 +197,115 @@ brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
 </script>
 </p>
-<h1 id="brython_div1">HW2</h1>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 2  # 設定邊框線寬
+
+# 計算第一個圓的圓心與半徑
+center_x1 = 40 + 230 / 2  # 第一個矩形的X中心
+center_y1 = 40 + 230 / 2  # 第一個矩形的Y中心
+radius1 = (230 * (2 ** 0.5)) / 2  # 半徑為對角線的一半
+
+# 計算第二個圓的圓心與半徑
+center_x2 = 140 + 220 / 2  # 第二個矩形的X中心
+center_y2 = 140 + 220 / 2  # 第二個矩形的Y中心
+radius2 = (220 * (2 ** 0.5)) / 2  # 半徑為對角線的一半
+
+# 繪製兩個圓的邊框
+ctx.strokeStyle = 'black'  # 設定圓的邊框顏色
+ctx.beginPath()
+ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)  # 第一個圓
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)  # 第二個圓
+ctx.stroke()
+
+# 繪製兩個矩形的邊框，且不填充顏色
+ctx.strokeStyle = 'red'   # 設定邊框顏色為紅色
+ctx.beginPath()
+ctx.rect(40, 40, 230, 230)  # 第一個矩形的位置和大小
+ctx.stroke()  # 繪製邊框
+
+ctx.strokeStyle = 'green'  # 設定邊框顏色為綠色
+ctx.beginPath()
+ctx.rect(140, 140, 220, 220)  # 第二個矩形的位置和大小
+ctx.stroke()  # 繪製邊框
+
+# 填充圓形的區域，排除與正方形的重疊部分
+ctx.globalCompositeOperation = 'source-over'  # 設定為填充模式
+ctx.fillStyle = 'lightblue'  # 設定圓形內部填充顏色為淺藍色
+
+# 填充第一個圓形
+ctx.beginPath()
+ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)
+ctx.fill()
+
+# 填充第二個圓形
+ctx.beginPath()
+ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
+ctx.fill()
+
+# 刪除圓形與正方形重疊的區域
+ctx.globalCompositeOperation = 'destination-out'  # 設定為刪除重疊區域模式
+
+# 刪除第一個圓與正方形重疊的區域
+ctx.beginPath()
+ctx.rect(40, 40, 230, 230)  # 第一個矩形區域
+ctx.fill()
+
+# 刪除第二個圓與正方形重疊的區域
+ctx.beginPath()
+ctx.rect(140, 140, 220, 220)  # 第二個矩形區域
+ctx.fill()
+
+# 填充重疊區域的顏色（位於兩個正方形重疊的區域）
+ctx.globalCompositeOperation = 'source-over'  # 恢復填充模式
+ctx.fillStyle = 'orange'  # 設定重疊區域填充顏色為橙色
+
+# 重疊區域填充
+ctx.beginPath()
+ctx.rect(140, 140, 130, 130)  # 重疊區域的範圍 (兩個矩形重疊部分)
+ctx.fill()
+
+# 重新繪製斜線，確保它在最上層
+ctx.strokeStyle = 'blue'  # 設定斜線顏色為藍色
+ctx.beginPath()
+ctx.moveTo(40, 40)
+ctx.lineTo(270, 270)  # 斜線
+ctx.stroke()
+
+# 最後繪製所有的邊框，確保線條不被遮蓋
+ctx.strokeStyle = 'red'   # 第一個矩形的邊框顏色
+ctx.beginPath()
+ctx.rect(40, 40, 230, 230)  # 第一個矩形的位置和大小
+ctx.stroke()
+
+ctx.strokeStyle = 'green'  # 第二個矩形的邊框顏色
+ctx.beginPath()
+ctx.rect(140, 140, 220, 220)  # 第二個矩形的位置和大小
+ctx.stroke()
+
+ctx.strokeStyle = 'black'  # 圓形邊框顏色
+ctx.beginPath()
+ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)  # 第一個圓
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)  # 第二個圓
+ctx.stroke()
+</script>
+</p><h1>HW2</h1>
 <p>
 <script type="text/python3">
 from browser import html
