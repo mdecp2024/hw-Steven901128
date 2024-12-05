@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,10 +141,39 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW 3 << <a href='HW 3.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4<br /><h1>HW 3 Exam</h1>
-<p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<br />HW 3 << <a href='HW 3.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4</div>
+    <div id="tipue_search_content">w12_hw << <a href='w12_hw.html'>Previous</a> <a href='HW 2 Exam.html'>Next</a> >> HW 2 Exam<br /><h1>w13_hw</h1>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+ctx = canvas.getContext("2d")
+
+ctx.lineWidth = 1
+ctx.strokeStyle = 'blue'  
+ctx.beginPath() 
+ctx.moveTo(10, 10)
+ctx.lineTo(210, 210)
+ctx.stroke()
+</script>
+</p><br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='HW 2 Exam.html'>Next</a> >> HW 2 Exam</div>
         
     <!-- footer -->
       <div class="container">
