@@ -289,6 +289,39 @@ ctx.fill()
 ctx.globalCompositeOperation = 'source-over'  # 恢復填充模式
 ctx.fillStyle = 'orange'  # 設定重疊區域填充顏色為橙色
 
+# 填充第一個矩形的內部
+ctx.globalCompositeOperation = 'source-over'  # 設定為填充模式
+ctx.fillStyle = 'lightyellow'  # 設定填充顏色
+ctx.beginPath()
+ctx.rect(20, 20, 80, 80)  # 第一個矩形區域
+ctx.fill()
+
+# 填充第二個矩形的內部
+ctx.fillStyle = 'lightgreen'  # 設定填充顏色
+ctx.beginPath()
+ctx.rect(60, 60, 80, 80)  # 第二個矩形區域
+ctx.fill()
+
+# 填充第一個圓形和矩形之間的空白區域
+ctx.fillStyle = 'lightblue'  # 設定填充顏色
+ctx.beginPath()
+ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)
+ctx.rect(20, 20, 80, 80)  # 使用複合模式
+ctx.globalCompositeOperation = 'destination-over'  # 填充背景模式
+ctx.fill()
+
+# 填充第二個圓形和矩形之間的空白區域
+ctx.fillStyle = 'lightpurple'  # 設定填充顏色
+ctx.beginPath()
+ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
+ctx.rect(60, 60, 80, 80)  # 使用複合模式
+ctx.globalCompositeOperation = 'destination-over'
+ctx.fill()
+
+# 重置繪圖操作模式
+ctx.globalCompositeOperation = 'source-over'
+
+
 # 重疊區域填充
 ctx.beginPath()
 ctx.rect(60, 60, 40, 40)  # 重疊區域的範圍 (兩個矩形重疊部分)
