@@ -215,7 +215,7 @@ ctx.lineWidth = 1  # 設定邊框線寬
 ctx.strokeStyle = 'blue'  # 設定對角線顏色為藍色
 ctx.beginPath()
 ctx.moveTo(20, 20)  # 調整起點位置
-ctx.lineTo(100, 100)  # 第一條對角線，縮小大小
+ctx.lineTo(100, 100)  # 終點設為大正方形的右下角
 ctx.stroke()
 
 # 繪製外接圓，圓心位於第一個矩形的中央
@@ -253,7 +253,7 @@ ctx.stroke()  # 繪製邊框
 ctx.beginPath()
 
 # 繪製第二個矩形
-ctx.strokeStyle = 'green'    # 設定邊框顏色為綠色
+ctx.strokeStyle = 'red'    # 設定邊框顏色為紅色
 ctx.beginPath()
 ctx.rect(60, 60, 80, 80)  # 設定第二個矩形的位置和大小，縮小為 60x60
 ctx.stroke()  # 繪製邊框
@@ -297,7 +297,7 @@ ctx.rect(20, 20, 80, 80)  # 第一個矩形區域
 ctx.fill()
 
 # 填充第二個矩形的內部
-ctx.fillStyle = 'lightgreen'  # 設定填充顏色
+ctx.fillStyle = 'orange'  # 設定填充顏色
 ctx.beginPath()
 ctx.rect(60, 60, 80, 80)  # 第二個矩形區域
 ctx.fill()
@@ -311,7 +311,7 @@ ctx.globalCompositeOperation = 'destination-over'  # 填充背景模式
 ctx.fill()
 
 # 填充第二個圓形和矩形之間的空白區域
-ctx.fillStyle = 'lightpurple'  # 設定填充顏色
+ctx.fillStyle = 'pink'  # 設定填充顏色
 ctx.beginPath()
 ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
 ctx.rect(60, 60, 80, 80)  # 使用複合模式
@@ -320,7 +320,6 @@ ctx.fill()
 
 # 重置繪圖操作模式
 ctx.globalCompositeOperation = 'source-over'
-
 
 # 重疊區域填充
 ctx.beginPath()
@@ -331,7 +330,7 @@ ctx.fill()
 ctx.strokeStyle = 'blue'  # 設定斜線顏色為藍色
 ctx.beginPath()
 ctx.moveTo(20, 20)
-ctx.lineTo(140, 140)  # 斜線
+ctx.lineTo(100, 100)  # 斜線終點設為大正方形的右下角
 ctx.stroke()
 
 # 最後繪製所有的邊框，確保線條不被遮蓋
@@ -340,7 +339,7 @@ ctx.beginPath()
 ctx.rect(20, 20, 80, 80)  # 第一個矩形的位置和大小
 ctx.stroke()
 
-ctx.strokeStyle = 'green'  # 第二個矩形的邊框顏色
+ctx.strokeStyle = 'red'  # 第二個矩形的邊框顏色
 ctx.beginPath()
 ctx.rect(60, 60, 80, 80)  # 第二個矩形的位置和大小
 ctx.stroke()
