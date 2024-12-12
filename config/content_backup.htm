@@ -188,10 +188,11 @@ for i in range(n): # 對於每一行
 <p><a href="https://literate-palm-tree-r4p4rx5pqjrghpp69-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/5676c61a4047819962829fd4baa3bbef/raw/44a9468e7e429f39bf5ae42aab065c0e7503aea1/07">07程式碼</a></p>
 <p>增加了del的語法，<span class="Y2IQFc" lang="zh-TW">是一個用於刪除物件、變數、列表元素、字典項目等關鍵字，類似加入購物車後，不想要購買就按下刪除觸發del的這個語法。</span></p>
 <p><a href="https://literate-palm-tree-r4p4rx5pqjrghpp69-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/5676c61a4047819962829fd4baa3bbef/raw/44a9468e7e429f39bf5ae42aab065c0e7503aea1/08">08程式碼</a></p>
-<p></p>
+<p>使用了for...in range的語法，從列表中選出要的字串來表示。</p>
 <p><a href="https://literate-palm-tree-r4p4rx5pqjrghpp69-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/5676c61a4047819962829fd4baa3bbef/raw/44a9468e7e429f39bf5ae42aab065c0e7503aea1/09">09程式碼</a></p>
+<p>用到了for...loop，else的語法，操作列表list進行迴圈處理，使用if...else來檢查條件成立，來判斷是不是我們想要的東西。</p>
 <p><a href="https://literate-palm-tree-r4p4rx5pqjrghpp69-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/5676c61a4047819962829fd4baa3bbef/raw/44a9468e7e429f39bf5ae42aab065c0e7503aea1/10">10程式碼</a></p>
-<h3>w13_hw</h3>
+<p></p><h3>w13_ai</h3>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -334,6 +335,7 @@ ctx.lineTo(260, 260)
 ctx.stroke()
 </script>
 </p>
+<h3>w13_hw</h3>
 <h3>w14_ex</h3>
 <!-- 導入 brython 程式庫 -->
 <p>
@@ -395,11 +397,12 @@ def is_point_in_circle(px, py, cx, cy, r):
     return (px - cx) ** 2 + (py - cy) ** 2 <= r ** 2
  
 # 使用者設定的圓心座標和半徑，並進行掃描線填充
-def draw_circles(x1, y1, r1, x2, y2, r2):
+def draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3):
     """
-    根據傳入的兩個圓的圓心和半徑，繪製圓形並使用掃描線算法填充區域。
+    根據傳入的三個圓的圓心和半徑，繪製圓形並使用掃描線算法填充區域。
     x1, y1, r1 是圓1的圓心坐標和半徑
     x2, y2, r2 是圓2的圓心坐標和半徑
+    x3, y3, r3 是圓3的圓心坐標和半徑
     """
     # 初始化畫布，創建並取得畫布和其 2D 上下文
     canvas, ctx = initialize_canvas(400, 400)
@@ -414,35 +417,53 @@ def draw_circles(x1, y1, r1, x2, y2, r2):
     for py in range(0, canvas.height):  # 遍歷每一行的 y 坐標
         # 當前掃描線的顏色初始化為 None，後面會根據位置選擇顏色
         current_color = None 
-         
+ 
         # 遍歷當前行中的每個像素點 (px, py)
         for px in range(0, canvas.width):  # 遍歷每一列的 x 坐標
             # 判斷該點是否在圓1內
             in_circle1 = is_point_in_circle(px, py, x1, y1, r1)
             # 判斷該點是否在圓2內
             in_circle2 = is_point_in_circle(px, py, x2, y2, r2)
+            # 判斷該點是否在圓3內
+            in_circle3 = is_point_in_circle(px, py, x3, y3, r3)
              
-            if in_circle1 and in_circle2:
-                # 如果點同時在兩個圓內，則是交集區域
-                if "intersection" not in color_dict:
+            if in_circle1 and in_circle2 and in_circle3:
+                # 如果點同時在三個圓內，則是交集區域
+                if "intersection_all" not in color_dict:
                     # 如果還沒有為交集區域分配顏色，則分配一個隨機顏色
-                    color_dict["intersection"] = random_color_generator()
-                # 設置當前掃描線的顏色為交集區域的顏色
-                current_color = color_dict["intersection"]
+                    color_dict["intersection_all"] = random_color_generator()
+                # 設置當前掃描線的顏色為三圓交集區域的顏色
+                current_color = color_dict["intersection_all"]
+            elif in_circle1 and in_circle2:
+                # 如果點在圓1和圓2的交集區域
+                if "intersection_12" not in color_dict:
+                    color_dict["intersection_12"] = random_color_generator()
+                current_color = color_dict["intersection_12"]
+            elif in_circle1 and in_circle3:
+                # 如果點在圓1和圓3的交集區域
+                if "intersection_13" not in color_dict:
+                    color_dict["intersection_13"] = random_color_generator()
+                current_color = color_dict["intersection_13"]
+            elif in_circle2 and in_circle3:
+                # 如果點在圓2和圓3的交集區域
+                if "intersection_23" not in color_dict:
+                    color_dict["intersection_23"] = random_color_generator()
+                current_color = color_dict["intersection_23"]
             elif in_circle1:
-                # 如果點只在圓1內，則是圓1的區域
+                # 如果點只在圓1內
                 if "circle1" not in color_dict:
-                    # 如果還沒有為圓1分配顏色，則分配一個隨機顏色
                     color_dict["circle1"] = random_color_generator()
-                # 設置當前掃描線的顏色為圓1區域的顏色
                 current_color = color_dict["circle1"]
             elif in_circle2:
-                # 如果點只在圓2內，則是圓2的區域
+                # 如果點只在圓2內
                 if "circle2" not in color_dict:
-                    # 如果還沒有為圓2分配顏色，則分配一個隨機顏色
                     color_dict["circle2"] = random_color_generator()
-                # 設置當前掃描線的顏色為圓2區域的顏色
                 current_color = color_dict["circle2"]
+            elif in_circle3:
+                # 如果點只在圓3內
+                if "circle3" not in color_dict:
+                    color_dict["circle3"] = random_color_generator()
+                current_color = color_dict["circle3"]
             else:
                 # 如果點不在任何圓內，則是背景區域
                 current_color = "white"  # 背景色設為白色
@@ -455,11 +476,13 @@ def draw_circles(x1, y1, r1, x2, y2, r2):
 # 直接設定圓心和半徑
 x1, y1, r1 = 150, 200, 100  # 圓1：圓心 (150, 200)，半徑 100
 x2, y2, r2 = 250, 200, 100  # 圓2：圓心 (250, 200)，半徑 100
+x3, y3, r3 = 200, 150, 100  # 圓3：圓心 (200, 150)，半徑 100
  
-# 呼叫畫圓函式，並繪製兩個圓
-draw_circles(x1, y1, r1, x2, y2, r2)
+# 呼叫畫圓函式，並繪製三個圓
+draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 </script>
-</p><h1>HW2</h1>
+</p>
+<h1>HW2</h1>
 <p>
 <script type="text/python3">
 from browser import html

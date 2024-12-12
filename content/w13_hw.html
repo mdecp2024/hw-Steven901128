@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12.html'>w12</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_ex.html'>w14_ex</a></li></li></ul></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12.html'>w12</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_ai.html'>w13_ai</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_ex.html'>w14_ex</a></li></li></ul></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,150 +141,8 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex<br /><h1>w13_hw</h1>
-<!-- 導入 brython 程式庫 -->
-<p>
-<script src="./../cmsimde/static/brython.js"></script>
-<script src="./../cmsimde/static/brython_stdlib.js"></script>
-</p>
-<!-- 啟動 Brython -->
-<p>
-<script>
-window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
-}
-</script>
-</p>
-<div id="brython_div1"></div>
-<p>
-<script type="text/python3">
-from browser import html
-from browser import document as doc
-import math
-
-canvas = html.CANVAS(width=500, height=500)
-brython_div = doc["brython_div1"]
-brython_div <= canvas
-
-ctx = canvas.getContext("2d")
-ctx.lineWidth = 4
-
-# 混色的
-ctx.globalCompositeOperation = "screem"
-
-# 黑邊圓*2 (每個畫四個邊邊)
-ctx.strokeStyle = 'black'
-
-# 第一個圓
-ctx.beginPath()
-ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "SkyBlue"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "Coral"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "LimeGreen"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "Beige"  
-ctx.fill()
-ctx.stroke()
-
-# 第二個圓
-ctx.beginPath()
-ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "DarkOrchid" 
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "ForestGreen"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "Gold"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "Crimson" 
-ctx.fill()
-ctx.stroke()
-
-# 紅方形*2 (4個三角形)
-ctx.strokeStyle = 'red'
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(60, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "LightYellow" 
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(260, 60)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "DarkSlateBlue"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(360, 160)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "LightCyan" 
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 360)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "PaleGreen"  
-ctx.fill()
-ctx.stroke()
-
-# 重疊的小方型
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "SteelBlue"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(260, 160)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "MediumPurple" 
-ctx.fill()
-ctx.stroke()
-
-# 藍斜線
-ctx.strokeStyle = 'blue'
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(260, 260)
-ctx.stroke()
-</script>
-</p>
-<br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex</div>
+    <div id="tipue_search_content">w13_ai << <a href='w13_ai.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex<br /><h1>w13_hw</h1>
+<br />w13_ai << <a href='w13_ai.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex</div>
         
     <!-- footer -->
       <div class="container">
