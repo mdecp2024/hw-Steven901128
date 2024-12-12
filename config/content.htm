@@ -336,7 +336,171 @@ ctx.stroke()
 </script>
 </p>
 <h3>w13_hw</h3>
-<h3>w14_ex</h3>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+import math
+
+# 定義畫布的大小（變數設定）
+canvas_width = 400
+canvas_height = 400
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=canvas_width, height=canvas_height)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1
+
+# 定義正方形的起始位置和邊長
+square1_x = 50
+square1_y = 50
+square1_size = 150
+
+square2_x = 200
+square2_y = 200
+square2_size = 150
+
+# 定義圓的圓心和半徑
+circle1_center = (150, 200)
+circle1_radius = 100
+circle2_center = (250, 200)
+circle2_radius = 100
+
+# 定義步長（每幾個像素檢查一次）
+step_size = 10
+circle_radius = max(step_size / 2, 1)
+
+# 定義顏色
+colors = {
+    "circle1": "red",       # 第一圓內部
+    "circle2": "blue",      # 第二圓內部
+    "square1": "green",     # 第一正方形內部
+    "square2": "yellow",    # 第二正方形內部
+    "top": "cyan",          # 上方區域
+    "bottom": "magenta",    # 下方區域
+    "left": "yellow",       # 左側區域
+    "right": "pink",        # 右側區域
+    "top_left": "green",    # 上左交界區域
+    "top_right": "orange",  # 上右交界區域
+    "bottom_left": "purple",# 下左交界區域
+    "bottom_right": "brown",# 下右交界區域
+    "diagonal_above": "lightblue",  # 對角線上方
+    "diagonal_below": "lightgreen"  # 對角線下方
+}
+
+# 繪製圓形和正方形
+def draw_shapes():
+    # 繪製第一個圓
+    ctx.beginPath()
+    ctx.arc(circle1_center[0], circle1_center[1], circle1_radius, 0, 2 * math.pi)
+    ctx.stroke()
+
+    # 繪製第二個圓
+    ctx.beginPath()
+    ctx.arc(circle2_center[0], circle2_center[1], circle2_radius, 0, 2 * math.pi)
+    ctx.stroke()
+
+    # 繪製正方形1
+    ctx.strokeStyle = 'red'
+    ctx.beginPath()
+    ctx.rect(square1_x, square1_y, square1_size, square1_size)
+    ctx.stroke()
+
+    # 繪製正方形2
+    ctx.strokeStyle = 'blue'
+    ctx.beginPath()
+    ctx.rect(square2_x, square2_y, square2_size, square2_size)
+    ctx.stroke()
+
+# 判斷點是否在圓內
+def is_point_in_circle(px, py, cx, cy, r):
+    return (px - cx) ** 2 + (py - cy) ** 2 <= r ** 2
+
+# 判斷點是否在正方形內
+def is_point_in_square(px, py, x, y, side_length):
+    return x <= px <= x + side_length and y <= py <= y + side_length
+
+# 判斷點是否在對角線上方
+def is_point_above_diagonal(px, py, slope=1):
+    return py < slope * px
+
+# 判斷點是否在對角線下方
+def is_point_below_diagonal(px, py, slope=1):
+    return py > slope * px
+
+# 顯示著色區域
+def color_regions():
+    # 繪製圖形
+    draw_shapes()
+
+    # 掃描大格點區域
+    for x in range(0, canvas_width, step_size):  # x 從 0 到畫布寬度，步長為 step_size
+        for y in range(0, canvas_height, step_size):  # y 從 0 到畫布高度，步長為 step_size
+
+            # 判斷區域，並設定顏色
+            if is_point_in_circle(x, y, *circle1_center, circle1_radius):
+                region = "circle1"  # 在第一圓內部
+            elif is_point_in_circle(x, y, *circle2_center, circle2_radius):
+                region = "circle2"  # 在第二圓內部
+            elif is_point_in_square(x, y, square1_x, square1_y, square1_size):
+                region = "square1"  # 在第一正方形內部
+            elif is_point_in_square(x, y, square2_x, square2_y, square2_size):
+                region = "square2"  # 在第二正方形內部
+            elif is_point_above_diagonal(x, y):
+                region = "diagonal_above"  # 在對角線上方
+            elif is_point_below_diagonal(x, y):
+                region = "diagonal_below"  # 在對角線下方
+            elif y < square1_y:
+                if x < square1_x:
+                    region = "top_left"  # 上左交界區域
+                elif x >= square1_x + square1_size:
+                    region = "top_right"  # 上右交界區域
+                else:
+                    region = "top"  # 上方區域
+            elif y >= square1_y + square1_size:
+                if x < square1_x:
+                    region = "bottom_left"  # 下左交界區域
+                elif x >= square1_x + square1_size:
+                    region = "bottom_right"  # 下右交界區域
+                else:
+                    region = "bottom"  # 下方區域
+            else:
+                if x < square1_x:
+                    region = "left"  # 左側區域
+                elif x >= square1_x + square1_size:
+                    region = "right"  # 右側區域
+                else:
+                    region = "top"  # 預設為上方區域
+
+            # 設定圓點顏色
+            ctx.fillStyle = colors[region]
+
+            # 畫圓點
+            ctx.beginPath()
+            ctx.arc(x, y, circle_radius, 0, 2 * math.pi)  # 半徑為 circle_radius 的圓
+            ctx.fill()
+
+# 呼叫畫圖函式
+color_regions()
+</script>
+</p><h3>w14_ex</h3>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
