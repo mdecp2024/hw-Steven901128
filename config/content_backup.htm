@@ -184,7 +184,7 @@ for i in range(n): # 對於每一行
 <p><a href="https://literate-palm-tree-r4p4rx5pqjrghpp69-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/5676c61a4047819962829fd4baa3bbef/raw/44a9468e7e429f39bf5ae42aab065c0e7503aea1/05">05程式碼</a></p>
 <p>新增了.index、.pop、.insert語法.index是用來搜尋，如果沒有會跳出error，pop則是移除列表中的索引，若()中是空白，則會刪除最後一個索引。</p>
 <p><a href="https://literate-palm-tree-r4p4rx5pqjrghpp69-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/5676c61a4047819962829fd4baa3bbef/raw/44a9468e7e429f39bf5ae42aab065c0e7503aea1/06">06程式碼</a></p>
-<p></p>
+<p>主要在教學列表的使用方式，【】內第一個是起點，第二個數字是終點，第三個數字是每多少輸出一次。</p>
 <p><a href="https://literate-palm-tree-r4p4rx5pqjrghpp69-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/5676c61a4047819962829fd4baa3bbef/raw/44a9468e7e429f39bf5ae42aab065c0e7503aea1/07">07程式碼 (待修正)</a></p>
 <p><a href="https://literate-palm-tree-r4p4rx5pqjrghpp69-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/5676c61a4047819962829fd4baa3bbef/raw/44a9468e7e429f39bf5ae42aab065c0e7503aea1/08">08程式碼</a></p>
 <p><a href="https://literate-palm-tree-r4p4rx5pqjrghpp69-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/5676c61a4047819962829fd4baa3bbef/raw/44a9468e7e429f39bf5ae42aab065c0e7503aea1/09">09程式碼</a></p>
@@ -207,155 +207,127 @@ brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 <script type="text/python3">
 from browser import html
 from browser import document as doc
+import math
 
-# 利用 html 建立 canvas 超文件物件
-canvas = html.CANVAS(width=400, height=400)
+canvas = html.CANVAS(width=500, height=500)
 brython_div = doc["brython_div1"]
 brython_div <= canvas
 
 ctx = canvas.getContext("2d")
-ctx.lineWidth = 1  # 設定邊框線寬
+ctx.lineWidth = 4
 
-# 繪製對角線，顏色設定為藍色
-ctx.strokeStyle = 'blue'  # 設定對角線顏色為藍色
+# 混色的
+ctx.globalCompositeOperation = "screem"
+
+# 黑邊圓*2 (每個畫四個邊邊)
+ctx.strokeStyle = 'black'
+
+# 第一個圓
 ctx.beginPath()
-ctx.moveTo(20, 20)  # 調整起點位置
-ctx.lineTo(100, 100)  # 終點設為大正方形的右下角
-ctx.stroke()
-
-# 繪製外接圓，圓心位於第一個矩形的中央
-center_x1 = 20 + 80 / 2  # 第一個矩形的X中心
-center_y1 = 20 + 80 / 2  # 第一個矩形的Y中心
-
-# 半徑為第一個矩形對角線的一半
-radius1 = (80 * (2 ** 0.5)) / 2
-
-# 繪製外接圓
-ctx.strokeStyle = 'green'  # 設定圓的顏色為綠色
-ctx.beginPath()
-ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)  # 圓心 (center_x1, center_y1) 和半徑
-ctx.stroke()
-
-# 繪製外接圓，圓心位於第二個矩形的中央
-center_x2 = 60 + 80 / 2  # 第二個矩形的X中心
-center_y2 = 60 + 80 / 2  # 第二個矩形的Y中心
-
-# 半徑為第二個矩形對角線的一半
-radius2 = (80 * (2 ** 0.5)) / 2
-
-# 繪製外接圓
-ctx.strokeStyle = 'purple'  # 設定圓的顏色為紫色
-ctx.beginPath()
-ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)  # 圓心 (center_x2, center_y2) 和半徑
-ctx.stroke()
-
-# 繪製第一個矩形，並填充顏色
-ctx.fillStyle = 'yellow'  # 設定填充顏色為黃色
-ctx.strokeStyle = 'red'   # 設定邊框顏色為紅色
-
-ctx.rect(20, 20, 80, 80)  # 設定矩形的位置和大小，縮小為 80x80
-ctx.stroke()  # 繪製邊框
-ctx.beginPath()
-
-# 繪製第二個矩形
-ctx.strokeStyle = 'red'    # 設定邊框顏色為紅色
-ctx.beginPath()
-ctx.rect(60, 60, 80, 80)  # 設定第二個矩形的位置和大小，縮小為 60x60
-ctx.stroke()  # 繪製邊框
-
-# 填充圓形的區域，排除與正方形的重疊部分
-ctx.globalCompositeOperation = 'source-over'  # 設定為填充模式
-ctx.fillStyle = 'lightblue'  # 設定圓形內部填充顏色為淺藍色
-
-# 填充第一個圓形
-ctx.beginPath()
-ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)
+ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "SkyBlue"  
 ctx.fill()
-
-# 填充第二個圓形
-ctx.beginPath()
-ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
-ctx.fill()
-
-# 刪除圓形與正方形重疊的區域
-ctx.globalCompositeOperation = 'destination-out'  # 設定為刪除重疊區域模式
-
-# 刪除第一個圓與正方形重疊的區域
-ctx.beginPath()
-ctx.rect(20, 20, 80, 80)  # 第一個矩形區域
-ctx.fill()
-
-# 刪除第二個圓與正方形重疊的區域
-ctx.beginPath()
-ctx.rect(60, 60, 80, 80)  # 第二個矩形區域
-ctx.fill()
-
-# 填充重疊區域的顏色（位於兩個正方形重疊的區域）
-ctx.globalCompositeOperation = 'source-over'  # 恢復填充模式
-ctx.fillStyle = 'orange'  # 設定重疊區域填充顏色為橙色
-
-# 填充第一個矩形的內部
-ctx.globalCompositeOperation = 'source-over'  # 設定為填充模式
-ctx.fillStyle = 'lightyellow'  # 設定填充顏色
-ctx.beginPath()
-ctx.rect(20, 20, 80, 80)  # 第一個矩形區域
-ctx.fill()
-
-# 填充第二個矩形的內部
-ctx.fillStyle = 'orange'  # 設定填充顏色
-ctx.beginPath()
-ctx.rect(60, 60, 80, 80)  # 第二個矩形區域
-ctx.fill()
-
-# 填充第一個圓形和矩形之間的空白區域
-ctx.fillStyle = 'lightblue'  # 設定填充顏色
-ctx.beginPath()
-ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)
-ctx.rect(20, 20, 80, 80)  # 使用複合模式
-ctx.globalCompositeOperation = 'destination-over'  # 填充背景模式
-ctx.fill()
-
-# 填充第二個圓形和矩形之間的空白區域
-ctx.fillStyle = 'pink'  # 設定填充顏色
-ctx.beginPath()
-ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
-ctx.rect(60, 60, 80, 80)  # 使用複合模式
-ctx.globalCompositeOperation = 'destination-over'
-ctx.fill()
-
-# 重置繪圖操作模式
-ctx.globalCompositeOperation = 'source-over'
-
-# 重疊區域填充
-ctx.beginPath()
-ctx.rect(60, 60, 40, 40)  # 重疊區域的範圍 (兩個矩形重疊部分)
-ctx.fill()
-
-# 重新繪製斜線，確保它在最上層
-ctx.strokeStyle = 'blue'  # 設定斜線顏色為藍色
-ctx.beginPath()
-ctx.moveTo(20, 20)
-ctx.lineTo(100, 100)  # 斜線終點設為大正方形的右下角
-ctx.stroke()
-
-# 最後繪製所有的邊框，確保線條不被遮蓋
-ctx.strokeStyle = 'red'   # 第一個矩形的邊框顏色
-ctx.beginPath()
-ctx.rect(20, 20, 80, 80)  # 第一個矩形的位置和大小
-ctx.stroke()
-
-ctx.strokeStyle = 'red'  # 第二個矩形的邊框顏色
-ctx.beginPath()
-ctx.rect(60, 60, 80, 80)  # 第二個矩形的位置和大小
-ctx.stroke()
-
-ctx.strokeStyle = 'black'  # 圓形邊框顏色
-ctx.beginPath()
-ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)  # 第一個圓
 ctx.stroke()
 
 ctx.beginPath()
-ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)  # 第二個圓
+ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "Coral"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "LimeGreen"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "Beige"  
+ctx.fill()
+ctx.stroke()
+
+# 第二個圓
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "DarkOrchid" 
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "ForestGreen"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "Gold"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "Crimson" 
+ctx.fill()
+ctx.stroke()
+
+# 紅方形*2 (4個三角形)
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(60, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "LightYellow" 
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 60)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "DarkSlateBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(360, 160)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "LightCyan" 
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 360)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "PaleGreen"  
+ctx.fill()
+ctx.stroke()
+
+# 重疊的小方型
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "SteelBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(260, 160)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "MediumPurple" 
+ctx.fill()
+ctx.stroke()
+
+# 藍斜線
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 260)
 ctx.stroke()
 </script>
 </p><h1>HW2</h1>
