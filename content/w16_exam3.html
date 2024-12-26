@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,23 +141,188 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Attendance.html'>Next</a> >> Attendance<br /><h1>About</h1>
-<p>國立虎尾科技大學機械設計工程系</p>
-<p>National Formosa University</p>
-<p>Department of Mechanical Design Engineering</p>
-<p>cp2024 計算機程式</p>
-<p>課程教材:</p>
-<p style="padding-left: 30px;"><a href="https://blog.jupyter.org/introducing-learn-python-with-jupyter-11214f152159">Learn Python with Jupyter</a> (<a href="https://www.learnpythonwithjupyter.com/">site</a>, <a href="https://localhost:9445/downloads/learn_python_with_jupyter.pdf">ebook</a>)</p>
-<p style="padding-left: 30px;">教育版帳號 microsoftonline 登入點: <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a></p>
-<p>Teams 線上教學:</p>
-<p style="padding-left: 30px;">以 "學號@nfu.edu.tw" 登入 <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a> Office 365</p>
-<p style="padding-left: 30px;">Teams 團隊代碼: <span class="fui-Text ___vec8h90 fk6fouc f1pbo8a8 f1i3iumi figsok6 fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649 foxqkq2" data-tid="join-team-code">ldodwua</span></p>
-<p>個人倉儲:<a href="https://github.com/mdecp2024/hw-Steven901128">https://github.com/mdecp2024/hw-Steven901128</a></p>
-<p>個人網站:<a href="https://github.com/Steven901128">https://github.com/Steven901128</a></p>
-<p>其他資訊:</p>
-<p style="padding-left: 30px;"><a href="./../downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
-<br /> <a href='Attendance.html'>Next</a> >> Attendance</div>
+    <div id="tipue_search_content">HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Final Report.html'>Next</a> >> Final Report<br /><h1>w16_exam3</h1>
+<p></p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import document, html
+
+import math
+
+ 
+
+from browser import html
+from browser import document as doc
+import math
+
+from browser import document, html
+
+import math
+
+ 
+
+# 初始化 HTML，確保 canvas 元素存在
+
+def setup_canvas():
+
+    if not document.querySelector("#my_canvas"):
+
+        canvas = html.CANVAS(id="my_canvas", width=800, height=630)
+
+        document <= canvas
+
+ 
+
+setup_canvas()
+
+
+
+# Set up canvas
+
+canvas = document["my_canvas"]
+
+ctx = canvas.getContext("2d")
+
+
+
+# Set origin (31, 50)
+
+origin_x, origin_y = 31 , 50
+ctx.font = "18px Arial"  # 放大字體大小 (原為14px)
+ctx.fillStyle = "red"
+ctx.fillText("(31, 17)", origin_x + 10, origin_y - 15)  # 在紅點的右上方標出座標
+
+# Draw X
+
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(320, origin_y)       # 第一段線
+ctx.moveTo(480, origin_y)       # 跳過空白部分
+ctx.lineTo(800, origin_y)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 150)  # 起始點
+ctx.lineTo(640, 150)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 270)  # 起始點
+ctx.lineTo(320, 270)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 390)  # 起始點
+ctx.lineTo(640, 390)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 510)  # 起始點
+ctx.lineTo(480, 510)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 630)  # 起始點
+ctx.lineTo(320, 630)       # 第一段線
+ctx.moveTo(480, 630)       # 跳過空白部分
+ctx.lineTo(800, 630)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+# Draw Y
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(origin_x, 630)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 390)  # 起始點
+ctx.lineTo(160, 510)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 150)  # 起始點
+ctx.lineTo(320, 270)       # 第一段線
+ctx.moveTo(320, 510)
+ctx.lineTo(320, 630)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(480, 270)  # 起始點
+ctx.lineTo(480, 390)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(640, 150)  # 起始點
+ctx.lineTo(640, 270)       # 第一段線
+ctx.moveTo(640, 390)
+ctx.lineTo(640, 630)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(800, origin_y)  # 起始點
+ctx.lineTo(800, 630)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(400, origin_y)  # 起始點
+ctx.lineTo(400, 100)       # 第一段線
+ctx.lineTo(720, 100)
+ctx.lineTo(720, 320)
+ctx.lineTo(560, 320)
+ctx.lineTo(560, 220)
+ctx.lineTo(400, 220)
+ctx.lineTo(400, 320)
+ctx.lineTo(80, 320)
+ctx.lineTo(80, 580)
+ctx.lineTo(240, 580)
+ctx.lineTo(240, 460)
+ctx.lineTo(560, 460)
+ctx.lineTo(560, 580)
+ctx.lineTo(400, 580)
+ctx.lineTo(400, 630)
+ctx.strokeStyle = "red"
+ctx.lineWidth = 2
+ctx.stroke()
+</script>
+</p><br />HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Final Report.html'>Next</a> >> Final Report</div>
         
     <!-- footer -->
       <div class="container">
