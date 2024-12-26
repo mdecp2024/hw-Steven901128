@@ -982,6 +982,7 @@ ctx.fill()
 </script>
 </p>
 <h4><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/bf2823cd5e42d7f61bf0dc73b76a497d/raw/5bc4782fadcdd5229957db3a99c2dc0203a37404/w16">程式碼</a></h4>
+<h4><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/bf2823cd5e42d7f61bf0dc73b76a497d/raw/d452a6224f2402adcbec15057b86fffad3c2e323/w16_exam2">程式碼</a></h4>
 <h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
@@ -1028,7 +1029,7 @@ def setup_canvas():
 
     if not document.querySelector("#my_canvas"):
 
-        canvas = html.CANVAS(id="my_canvas", width=800, height=600)
+        canvas = html.CANVAS(id="my_canvas", width=800, height=630)
 
         document <= canvas
 
@@ -1046,9 +1047,12 @@ ctx = canvas.getContext("2d")
 
 
 
-# Set origin (31, 17)
+# Set origin (31, 50)
 
-origin_x, origin_y = 31 , 17
+origin_x, origin_y = 31 , 50
+ctx.font = "18px Arial"  # 放大字體大小 (原為14px)
+ctx.fillStyle = "red"
+ctx.fillText("(31, 17)", origin_x + 10, origin_y - 15)  # 在紅點的右上方標出座標
 
 # Draw X
 
@@ -1062,38 +1066,38 @@ ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(160, 120)  # 起始點
-ctx.lineTo(640, 120)       # 第一段線
+ctx.moveTo(160, 150)  # 起始點
+ctx.lineTo(640, 150)       # 第一段線
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(origin_x, 240)  # 起始點
-ctx.lineTo(320, 240)       # 第一段線
+ctx.moveTo(origin_x, 270)  # 起始點
+ctx.lineTo(320, 270)       # 第一段線
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(160, 360)  # 起始點
-ctx.lineTo(640, 360)       # 第一段線
+ctx.moveTo(160, 390)  # 起始點
+ctx.lineTo(640, 390)       # 第一段線
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(320, 480)  # 起始點
-ctx.lineTo(160, 480)       # 第一段線
+ctx.moveTo(320, 510)  # 起始點
+ctx.lineTo(480, 510)       # 第一段線
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(origin_x, 600)  # 起始點
-ctx.lineTo(320, 600)       # 第一段線
-ctx.moveTo(480, 600)       # 跳過空白部分
-ctx.lineTo(800, 600)       # 第二段線
+ctx.moveTo(origin_x, 630)  # 起始點
+ctx.lineTo(320, 630)       # 第一段線
+ctx.moveTo(480, 630)       # 跳過空白部分
+ctx.lineTo(800, 630)       # 第二段線
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
@@ -1101,58 +1105,52 @@ ctx.stroke()
 # Draw Y
 ctx.beginPath()
 ctx.moveTo(origin_x, origin_y)  # 起始點
-ctx.lineTo(origin_x, 600)       # 第一段線
+ctx.lineTo(origin_x, 630)       # 第一段線
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(origin_x, origin_y)  # 起始點
-ctx.lineTo(origin_x, 600)       # 第一段線
+ctx.moveTo(160, 390)  # 起始點
+ctx.lineTo(160, 510)       # 第一段線
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(160, 480)  # 起始點
-ctx.lineTo(160, 120)       # 第一段線
+ctx.moveTo(320, 150)  # 起始點
+ctx.lineTo(320, 270)       # 第一段線
+ctx.moveTo(320, 510)
+ctx.lineTo(320, 630)
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(320, 120)  # 起始點
-ctx.lineTo(320, 240)       # 第一段線
-ctx.moveTo(320, 480)
-ctx.lineTo(320, 600)
+ctx.moveTo(480, 270)  # 起始點
+ctx.lineTo(480, 390)       # 第一段線
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(480, 240)  # 起始點
-ctx.lineTo(480, 360)       # 第一段線
+ctx.moveTo(640, 150)  # 起始點
+ctx.lineTo(640, 270)       # 第一段線
+ctx.moveTo(640, 390)
+ctx.lineTo(640, 630)
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 
 ctx.beginPath()
-ctx.moveTo(640, 120)  # 起始點
-ctx.lineTo(640, 240)       # 第一段線
-ctx.moveTo(640, 360)
-ctx.lineTo(640, 600)
-ctx.strokeStyle = "blue"
-ctx.lineWidth = 2
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(800, 600)  # 起始點
-ctx.lineTo(800, 600)       # 第一段線
+ctx.moveTo(800, origin_y)  # 起始點
+ctx.lineTo(800, 630)       # 第一段線
 ctx.strokeStyle = "blue"
 ctx.lineWidth = 2
 ctx.stroke()
 </script>
-</p><h1>HW 4</h1>
+</p>
+<h1>HW 4</h1>
 <h4>主題: 利用 Python 控制機電模擬系統 (20%)</h4>
 <p style="padding-left: 30px;">利用 <a href="https://solvespace.com/">https://solvespace.com/</a> 建立機械系統零組件</p>
 <p style="padding-left: 30px;">利用 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立機電模擬系統</p>
@@ -1289,7 +1287,7 @@ doc["add1to100"].bind('click', add)
 <div id="kw_editor1" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form abframeid="iframe.0.7006659076226749" abineguid="682B231DD6CC48F485393A1CD7741179"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<form abframeid="iframe.0.3451409972543169" abineguid="682B231DD6CC48F485393A1CD7741179"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
@@ -1408,7 +1406,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div id="kw_editor2" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form abframeid="iframe.0.7006659076226749" abineguid="8A9017155032403C8E2B7EB831CF281A"><label>Filename: <input id="kw_filename2" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src2', 'kw_filename2');" type="submit" value="Save"/></form>
+<form abframeid="iframe.0.3451409972543169" abineguid="8A9017155032403C8E2B7EB831CF281A"><label>Filename: <input id="kw_filename2" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src2', 'kw_filename2');" type="submit" value="Save"/></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
