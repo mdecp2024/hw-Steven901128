@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,10 +141,170 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">About << <a href='About.html'>Previous</a> <a href='HW 1.html'>Next</a> >> HW 1<br /><h1>Attendance</h1>
-<p>出席 (10%) - 自行舉證評分</p>
-<p>自行利用 Github commits 提交記錄評分.</p>
-<br />About << <a href='About.html'>Previous</a> <a href='HW 1.html'>Next</a> >> HW 1</div>
+    <div id="tipue_search_content">HW 3 Exam << <a href='HW 3 Exam.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4<br /><h1>w16_exam2</h1>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import document, html
+
+import math
+
+ 
+
+from browser import html
+from browser import document as doc
+import math
+
+from browser import document, html
+
+import math
+
+ 
+
+# 初始化 HTML，確保 canvas 元素存在
+
+def setup_canvas():
+
+    if not document.querySelector("#my_canvas"):
+
+        canvas = html.CANVAS(id="my_canvas", width=800, height=600)
+
+        document <= canvas
+
+ 
+
+setup_canvas()
+
+
+
+# Set up canvas
+
+canvas = document["my_canvas"]
+
+ctx = canvas.getContext("2d")
+
+
+
+# Set origin (31, 17)
+
+origin_x, origin_y = 31 , 17
+
+# Draw X
+
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(320, origin_y)       # 第一段線
+ctx.moveTo(480, origin_y)       # 跳過空白部分
+ctx.lineTo(800, origin_y)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 120)  # 起始點
+ctx.lineTo(640, 120)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 240)  # 起始點
+ctx.lineTo(320, 240)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 360)  # 起始點
+ctx.lineTo(640, 360)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 480)  # 起始點
+ctx.lineTo(160, 480)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 600)  # 起始點
+ctx.lineTo(320, 600)       # 第一段線
+ctx.moveTo(480, 600)       # 跳過空白部分
+ctx.lineTo(800, 600)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+# Draw Y
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(origin_x, 600)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(origin_x, 600)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 480)  # 起始點
+ctx.lineTo(160, 120)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 120)  # 起始點
+ctx.lineTo(320, 240)       # 第一段線
+ctx.moveTo(320, 480)
+ctx.lineTo(320, 600)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(480, 240)  # 起始點
+ctx.lineTo(480, 360)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(640, 120)  # 起始點
+ctx.lineTo(640, 240)       # 第一段線
+ctx.moveTo(640, 360)
+ctx.lineTo(640, 600)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(800, 600)  # 起始點
+ctx.lineTo(800, 600)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+</script>
+</p><br />HW 3 Exam << <a href='HW 3 Exam.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4</div>
         
     <!-- footer -->
       <div class="container">

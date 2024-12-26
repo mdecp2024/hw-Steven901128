@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,10 +141,220 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">About << <a href='About.html'>Previous</a> <a href='HW 1.html'>Next</a> >> HW 1<br /><h1>Attendance</h1>
-<p>出席 (10%) - 自行舉證評分</p>
-<p>自行利用 Github commits 提交記錄評分.</p>
-<br />About << <a href='About.html'>Previous</a> <a href='HW 1.html'>Next</a> >> HW 1</div>
+    <div id="tipue_search_content">HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3<br /><h1>w16_exam1</h1>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import document, html
+
+import math
+
+ 
+
+from browser import html
+from browser import document as doc
+import math
+
+from browser import document, html
+
+import math
+
+ 
+
+# 初始化 HTML，確保 canvas 元素存在
+
+def setup_canvas():
+
+    if not document.querySelector("#my_canvas"):
+
+        canvas = html.CANVAS(id="my_canvas", width=800, height=600)
+
+        document <= canvas
+
+ 
+
+setup_canvas()
+
+
+
+# Set up canvas
+
+canvas = document["my_canvas"]
+
+ctx = canvas.getContext("2d")
+
+
+
+# Set origin (31, 17)
+
+origin_x, origin_y = 31 , 17
+
+ctx.font = 'bold 20px Arial';
+
+ctx.fillText("Y", origin_x -15, origin_y + 560)
+ctx.fillText("X", origin_x +730, origin_y +20)
+
+
+
+# Draw X-axis
+
+ctx.moveTo(origin_x, origin_y)  # 原點
+ctx.lineTo(canvas.width, origin_y)  # 向右延伸
+ctx.lineTo(canvas.width - 10, origin_y - 5)  # X 軸箭頭
+ctx.lineTo(canvas.width - 10, origin_y + 5)  # X 軸箭頭
+ctx.strokeStyle = "black"
+ctx.lineWidth = 2
+ctx.stroke()
+
+
+
+
+
+# Draw Y-axis
+
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 原點
+ctx.lineTo(origin_x, canvas.height)  # 向下延伸
+ctx.lineTo(origin_x - 5, canvas.height - 10)  # Y 軸箭頭
+ctx.lineTo(origin_x + 5, canvas.height - 10)  # Y 軸箭頭
+ctx.stroke()
+
+
+
+# Label origin
+
+ctx.font = "12px Arial"
+
+ctx.fillStyle = "black"
+
+ctx.fillText("(31, 17)", origin_x + 5, origin_y - 5)
+
+
+
+# Draw shapes
+
+# Adjusted placement to fix alignment issue
+
+
+
+# Hexagon (Orange)
+
+hex_x, hex_y = 100, 100
+
+ctx.beginPath()
+
+for i in range(6):
+
+    angle = i * (2 * math.pi / 6)
+
+    x = hex_x + 30 * math.cos(angle)
+
+    y = hex_y + 30 * math.sin(angle)
+
+    if i == 0:
+
+        ctx.moveTo(x, y)
+
+    else:
+
+        ctx.lineTo(x, y)
+
+ctx.closePath()
+
+ctx.fillStyle = "orange"
+
+ctx.fill()
+
+
+
+# Diamond (Teal)
+
+ctx.beginPath()
+
+ctx.moveTo(160, 70)
+
+ctx.lineTo(180, 100)
+
+ctx.lineTo(160, 130)
+
+ctx.lineTo(140, 100)
+
+ctx.closePath()
+
+ctx.fillStyle = "teal"
+
+ctx.fill()
+
+
+
+# Triangle (Teal)
+
+ctx.beginPath()
+
+ctx.moveTo(165, 130)
+
+ctx.lineTo(205, 130)
+
+ctx.lineTo(185, 100)
+
+ctx.closePath()
+
+ctx.fillStyle = "blue"
+
+ctx.fill()
+
+
+
+# Circle (Pink)
+
+ctx.beginPath()
+
+ctx.arc(230, 100, 30, 0, 2 * math.pi)
+
+ctx.fillStyle = "pink"
+
+ctx.fill()
+
+
+
+# Square (Yellow)
+
+ctx.beginPath()
+
+ctx.rect(265, 75, 50, 50)
+
+ctx.fillStyle = "yellow"
+
+ctx.fill()
+
+
+
+# Rectangle (Blue)
+
+ctx.beginPath()
+
+ctx.rect(320, 90, 60, 20)
+
+ctx.fillStyle = "Blue"
+
+ctx.fill()
+</script>
+</p>
+<h4><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/bf2823cd5e42d7f61bf0dc73b76a497d/raw/5bc4782fadcdd5229957db3a99c2dc0203a37404/w16">程式碼</a></h4>
+<br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
         
     <!-- footer -->
       <div class="container">

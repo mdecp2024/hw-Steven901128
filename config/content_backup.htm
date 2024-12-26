@@ -662,6 +662,9 @@ draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 <div></div>
 <div>題目4:</div>
 <div><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/03079d29fdc3ccfda9de2dbce5b26917/raw/d4968f2abfa019e83fb78605e25dea26c8d9d2d4/4.">add_avoid_8</a></div>
+<div></div>
+<div>心得:</div>
+<div>第一題是用for迴圈range提供數值每數一位數total變量就會加一次，直到100次為止。</div>
 <p>
 <script type="text/python3">
 from browser import html
@@ -743,7 +746,8 @@ def draw_circles():
 
 draw_circles()
 </script>
-</p><h1>HW2</h1>
+</p>
+<h1>HW2</h1>
 <p>
 <script type="text/python3">
 from browser import html
@@ -765,6 +769,219 @@ ctx.stroke()
 <h2>HW 2 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
+<h3>w16_exam1</h3>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import document, html
+
+import math
+
+ 
+
+from browser import html
+from browser import document as doc
+import math
+
+from browser import document, html
+
+import math
+
+ 
+
+# 初始化 HTML，確保 canvas 元素存在
+
+def setup_canvas():
+
+    if not document.querySelector("#my_canvas"):
+
+        canvas = html.CANVAS(id="my_canvas", width=800, height=600)
+
+        document <= canvas
+
+ 
+
+setup_canvas()
+
+
+
+# Set up canvas
+
+canvas = document["my_canvas"]
+
+ctx = canvas.getContext("2d")
+
+
+
+# Set origin (31, 17)
+
+origin_x, origin_y = 31 , 17
+
+ctx.font = 'bold 20px Arial';
+
+ctx.fillText("Y", origin_x -15, origin_y + 560)
+ctx.fillText("X", origin_x +730, origin_y +20)
+
+
+
+# Draw X-axis
+
+ctx.moveTo(origin_x, origin_y)  # 原點
+ctx.lineTo(canvas.width, origin_y)  # 向右延伸
+ctx.lineTo(canvas.width - 10, origin_y - 5)  # X 軸箭頭
+ctx.lineTo(canvas.width - 10, origin_y + 5)  # X 軸箭頭
+ctx.strokeStyle = "black"
+ctx.lineWidth = 2
+ctx.stroke()
+
+
+
+
+
+# Draw Y-axis
+
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 原點
+ctx.lineTo(origin_x, canvas.height)  # 向下延伸
+ctx.lineTo(origin_x - 5, canvas.height - 10)  # Y 軸箭頭
+ctx.lineTo(origin_x + 5, canvas.height - 10)  # Y 軸箭頭
+ctx.stroke()
+
+
+
+# Label origin
+
+ctx.font = "12px Arial"
+
+ctx.fillStyle = "black"
+
+ctx.fillText("(31, 17)", origin_x + 5, origin_y - 5)
+
+
+
+# Draw shapes
+
+# Adjusted placement to fix alignment issue
+
+
+
+# Hexagon (Orange)
+
+hex_x, hex_y = 100, 100
+
+ctx.beginPath()
+
+for i in range(6):
+
+    angle = i * (2 * math.pi / 6)
+
+    x = hex_x + 30 * math.cos(angle)
+
+    y = hex_y + 30 * math.sin(angle)
+
+    if i == 0:
+
+        ctx.moveTo(x, y)
+
+    else:
+
+        ctx.lineTo(x, y)
+
+ctx.closePath()
+
+ctx.fillStyle = "orange"
+
+ctx.fill()
+
+
+
+# Diamond (Teal)
+
+ctx.beginPath()
+
+ctx.moveTo(160, 70)
+
+ctx.lineTo(180, 100)
+
+ctx.lineTo(160, 130)
+
+ctx.lineTo(140, 100)
+
+ctx.closePath()
+
+ctx.fillStyle = "teal"
+
+ctx.fill()
+
+
+
+# Triangle (Teal)
+
+ctx.beginPath()
+
+ctx.moveTo(165, 130)
+
+ctx.lineTo(205, 130)
+
+ctx.lineTo(185, 100)
+
+ctx.closePath()
+
+ctx.fillStyle = "blue"
+
+ctx.fill()
+
+
+
+# Circle (Pink)
+
+ctx.beginPath()
+
+ctx.arc(230, 100, 30, 0, 2 * math.pi)
+
+ctx.fillStyle = "pink"
+
+ctx.fill()
+
+
+
+# Square (Yellow)
+
+ctx.beginPath()
+
+ctx.rect(265, 75, 50, 50)
+
+ctx.fillStyle = "yellow"
+
+ctx.fill()
+
+
+
+# Rectangle (Blue)
+
+ctx.beginPath()
+
+ctx.rect(320, 90, 60, 20)
+
+ctx.fillStyle = "Blue"
+
+ctx.fill()
+</script>
+</p>
+<h4><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/bf2823cd5e42d7f61bf0dc73b76a497d/raw/5bc4782fadcdd5229957db3a99c2dc0203a37404/w16">程式碼</a></h4>
 <h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
@@ -772,7 +989,170 @@ ctx.stroke()
 <h2>HW 3 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h1>HW 4</h1>
+<h3>w16_exam2</h3>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import document, html
+
+import math
+
+ 
+
+from browser import html
+from browser import document as doc
+import math
+
+from browser import document, html
+
+import math
+
+ 
+
+# 初始化 HTML，確保 canvas 元素存在
+
+def setup_canvas():
+
+    if not document.querySelector("#my_canvas"):
+
+        canvas = html.CANVAS(id="my_canvas", width=800, height=600)
+
+        document <= canvas
+
+ 
+
+setup_canvas()
+
+
+
+# Set up canvas
+
+canvas = document["my_canvas"]
+
+ctx = canvas.getContext("2d")
+
+
+
+# Set origin (31, 17)
+
+origin_x, origin_y = 31 , 17
+
+# Draw X
+
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(320, origin_y)       # 第一段線
+ctx.moveTo(480, origin_y)       # 跳過空白部分
+ctx.lineTo(800, origin_y)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 120)  # 起始點
+ctx.lineTo(640, 120)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 240)  # 起始點
+ctx.lineTo(320, 240)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 360)  # 起始點
+ctx.lineTo(640, 360)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 480)  # 起始點
+ctx.lineTo(160, 480)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 600)  # 起始點
+ctx.lineTo(320, 600)       # 第一段線
+ctx.moveTo(480, 600)       # 跳過空白部分
+ctx.lineTo(800, 600)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+# Draw Y
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(origin_x, 600)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(origin_x, 600)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 480)  # 起始點
+ctx.lineTo(160, 120)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 120)  # 起始點
+ctx.lineTo(320, 240)       # 第一段線
+ctx.moveTo(320, 480)
+ctx.lineTo(320, 600)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(480, 240)  # 起始點
+ctx.lineTo(480, 360)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(640, 120)  # 起始點
+ctx.lineTo(640, 240)       # 第一段線
+ctx.moveTo(640, 360)
+ctx.lineTo(640, 600)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(800, 600)  # 起始點
+ctx.lineTo(800, 600)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+</script>
+</p><h1>HW 4</h1>
 <h4>主題: 利用 Python 控制機電模擬系統 (20%)</h4>
 <p style="padding-left: 30px;">利用 <a href="https://solvespace.com/">https://solvespace.com/</a> 建立機械系統零組件</p>
 <p style="padding-left: 30px;">利用 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立機電模擬系統</p>
@@ -909,7 +1289,7 @@ doc["add1to100"].bind('click', add)
 <div id="kw_editor1" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form abframeid="iframe.0.606972202543562" abineguid="682B231DD6CC48F485393A1CD7741179"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<form abframeid="iframe.0.7006659076226749" abineguid="682B231DD6CC48F485393A1CD7741179"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
@@ -1028,7 +1408,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div id="kw_editor2" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form abframeid="iframe.0.606972202543562" abineguid="8A9017155032403C8E2B7EB831CF281A"><label>Filename: <input id="kw_filename2" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src2', 'kw_filename2');" type="submit" value="Save"/></form>
+<form abframeid="iframe.0.7006659076226749" abineguid="8A9017155032403C8E2B7EB831CF281A"><label>Filename: <input id="kw_filename2" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src2', 'kw_filename2');" type="submit" value="Save"/></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
