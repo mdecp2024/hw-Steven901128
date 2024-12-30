@@ -1166,13 +1166,14 @@ ctx.stroke()
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 4 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h3>w16_exam3</h3>
-<p></p>
-<!-- 導入 brython 程式庫 -->
+<h4><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/bf2823cd5e42d7f61bf0dc73b76a497d/raw/5d567f0fe1bbc376239711467cf19690031db831/w16_exam3">程式碼</a></h4>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/-RS3GDHuFs0" width="560"></iframe></p>
 <p>
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
 </p>
-<!-- 啟動 Brython -->
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
 <p>
 <script>
 window.onload=function(){
@@ -1180,7 +1181,16 @@ brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
 </script>
 </p>
-<div id="brython_div1"></div>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
 <p>
 <script type="text/python3">
 from browser import document, html
@@ -1346,16 +1356,348 @@ ctx.strokeStyle = "red"
 ctx.lineWidth = 2
 ctx.stroke()
 </script>
-</p><h1>Final Report</h1>
+</p>
+<script type="text/python3">
+from browser import document, html
+
+import math
+
+ 
+
+from browser import html
+from browser import document as doc
+import math
+
+from browser import document, html
+
+import math
+
+ 
+
+# 初始化 HTML，確保 canvas 元素存在
+
+def setup_canvas():
+
+    if not document.querySelector("#my_canvas"):
+
+        canvas = html.CANVAS(id="my_canvas", width=800, height=630)
+
+        document <= canvas
+
+ 
+
+setup_canvas()
+
+
+
+# Set up canvas
+
+canvas = document["my_canvas"]
+
+ctx = canvas.getContext("2d")
+
+
+
+# Set origin (31, 50)
+
+origin_x, origin_y = 31 , 50
+ctx.font = "18px Arial"  # 放大字體大小 (原為14px)
+ctx.fillStyle = "red"
+ctx.fillText("(31, 17)", origin_x + 10, origin_y - 15)  # 在紅點的右上方標出座標
+
+# Draw X
+
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(320, origin_y)       # 第一段線
+ctx.moveTo(480, origin_y)       # 跳過空白部分
+ctx.lineTo(800, origin_y)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 150)  # 起始點
+ctx.lineTo(640, 150)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 270)  # 起始點
+ctx.lineTo(320, 270)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 390)  # 起始點
+ctx.lineTo(640, 390)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 510)  # 起始點
+ctx.lineTo(480, 510)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 630)  # 起始點
+ctx.lineTo(320, 630)       # 第一段線
+ctx.moveTo(480, 630)       # 跳過空白部分
+ctx.lineTo(800, 630)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+# Draw Y
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(origin_x, 630)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 390)  # 起始點
+ctx.lineTo(160, 510)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 150)  # 起始點
+ctx.lineTo(320, 270)       # 第一段線
+ctx.moveTo(320, 510)
+ctx.lineTo(320, 630)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(480, 270)  # 起始點
+ctx.lineTo(480, 390)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(640, 150)  # 起始點
+ctx.lineTo(640, 270)       # 第一段線
+ctx.moveTo(640, 390)
+ctx.lineTo(640, 630)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(800, origin_y)  # 起始點
+ctx.lineTo(800, 630)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(400, origin_y)  # 起始點
+ctx.lineTo(400, 100)       # 第一段線
+ctx.lineTo(720, 100)
+ctx.lineTo(720, 320)
+ctx.lineTo(560, 320)
+ctx.lineTo(560, 220)
+ctx.lineTo(400, 220)
+ctx.lineTo(400, 320)
+ctx.lineTo(80, 320)
+ctx.lineTo(80, 580)
+ctx.lineTo(240, 580)
+ctx.lineTo(240, 460)
+ctx.lineTo(560, 460)
+ctx.lineTo(560, 580)
+ctx.lineTo(400, 580)
+ctx.lineTo(400, 630)
+ctx.strokeStyle = "red"
+ctx.lineWidth = 2
+ctx.stroke()
+</script>
+<script type="text/python3">
+from browser import document, html
+
+import math
+
+ 
+
+from browser import html
+from browser import document as doc
+import math
+
+from browser import document, html
+
+import math
+
+ 
+
+# 初始化 HTML，確保 canvas 元素存在
+
+def setup_canvas():
+
+    if not document.querySelector("#my_canvas"):
+
+        canvas = html.CANVAS(id="my_canvas", width=800, height=630)
+
+        document <= canvas
+
+ 
+
+setup_canvas()
+
+
+
+# Set up canvas
+
+canvas = document["my_canvas"]
+
+ctx = canvas.getContext("2d")
+
+
+
+# Set origin (31, 50)
+
+origin_x, origin_y = 31 , 50
+ctx.font = "18px Arial"  # 放大字體大小 (原為14px)
+ctx.fillStyle = "red"
+ctx.fillText("(31, 17)", origin_x + 10, origin_y - 15)  # 在紅點的右上方標出座標
+
+# Draw X
+
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(320, origin_y)       # 第一段線
+ctx.moveTo(480, origin_y)       # 跳過空白部分
+ctx.lineTo(800, origin_y)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 150)  # 起始點
+ctx.lineTo(640, 150)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 270)  # 起始點
+ctx.lineTo(320, 270)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 390)  # 起始點
+ctx.lineTo(640, 390)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 510)  # 起始點
+ctx.lineTo(480, 510)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(origin_x, 630)  # 起始點
+ctx.lineTo(320, 630)       # 第一段線
+ctx.moveTo(480, 630)       # 跳過空白部分
+ctx.lineTo(800, 630)       # 第二段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+# Draw Y
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)  # 起始點
+ctx.lineTo(origin_x, 630)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 390)  # 起始點
+ctx.lineTo(160, 510)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(320, 150)  # 起始點
+ctx.lineTo(320, 270)       # 第一段線
+ctx.moveTo(320, 510)
+ctx.lineTo(320, 630)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(480, 270)  # 起始點
+ctx.lineTo(480, 390)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(640, 150)  # 起始點
+ctx.lineTo(640, 270)       # 第一段線
+ctx.moveTo(640, 390)
+ctx.lineTo(640, 630)
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(800, origin_y)  # 起始點
+ctx.lineTo(800, 630)       # 第一段線
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(400, origin_y)  # 起始點
+ctx.lineTo(400, 100)       # 第一段線
+ctx.lineTo(720, 100)
+ctx.lineTo(720, 320)
+ctx.lineTo(560, 320)
+ctx.lineTo(560, 220)
+ctx.lineTo(400, 220)
+ctx.lineTo(400, 320)
+ctx.lineTo(80, 320)
+ctx.lineTo(80, 580)
+ctx.lineTo(240, 580)
+ctx.lineTo(240, 460)
+ctx.lineTo(560, 460)
+ctx.lineTo(560, 580)
+ctx.lineTo(400, 580)
+ctx.lineTo(400, 630)
+ctx.strokeStyle = "red"
+ctx.lineWidth = 2
+ctx.stroke()
+</script>
+<p></p>
+<p></p>
+<p></p>
+<p><br/><br/><br/><br/></p><h1>Final Report</h1>
 <p>期末口頭與書面專題報告 (20%)</p>
 <p>期末口頭專題報告影片:</p>
-<p style="padding-left: 30px;">......</p>
+<p>......</p>
 <p>期末書面專題報告檔案 (pdf):</p>
-<p style="padding-left: 30px;">......</p>
+<p>......</p>
 <p>電腦輔助設計與實習課程總結心得:</p>
-<p style="padding-left: 30px;">......</p>
+<p>......</p>
 <p>期末報告自評成績:</p>
-<p style="padding-left: 30px;">完成上述流程後, 請將 Final Report 自評分數輸入 cp2024 自評表單中.</p>
+<p>完成上述流程後, 請將 Final Report 自評分數輸入 cp2024 自評表單中.</p>
 <h1>Brython</h1>
 <p>從 1 累加到 100:</p>
 <p><button id="add1to100">1 add to 100</button></p>
@@ -1471,7 +1813,7 @@ doc["add1to100"].bind('click', add)
 <div id="kw_editor1" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form abframeid="iframe.0.11855731881309661" abineguid="682B231DD6CC48F485393A1CD7741179"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<form abframeid="iframe.0.3916483100373449" abineguid="682B231DD6CC48F485393A1CD7741179"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
@@ -1590,7 +1932,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div id="kw_editor2" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form abframeid="iframe.0.11855731881309661" abineguid="8A9017155032403C8E2B7EB831CF281A"><label>Filename: <input id="kw_filename2" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src2', 'kw_filename2');" type="submit" value="Save"/></form>
+<form abframeid="iframe.0.3916483100373449" abineguid="8A9017155032403C8E2B7EB831CF281A"><label>Filename: <input id="kw_filename2" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src2', 'kw_filename2');" type="submit" value="Save"/></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
