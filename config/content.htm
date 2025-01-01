@@ -652,19 +652,84 @@ draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 <p></p>
 <div>題目1:</div>
 <div><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/03079d29fdc3ccfda9de2dbce5b26917/raw/d4968f2abfa019e83fb78605e25dea26c8d9d2d4/1.">從 1 累加到 100</a></div>
+<div><code>def calculate_sum():</code> 是一個函數定義的起始部分</div>
+<div><strong><code>() (空括號)</code></strong>：表示該函數不接受任何參數</div>
+<div><strong>初始化總和</strong>：<code>total = 0</code>，用來存儲累加結果</div>
+<div><code>for</code> 循環遍歷從 1 到 10 的數字，並將每個數字累加到 <code>total</code> 中</div>
 <div></div>
 <div>題目2:</div>
 <div><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/03079d29fdc3ccfda9de2dbce5b26917/raw/d4968f2abfa019e83fb78605e25dea26c8d9d2d4/2.">addto</a></div>
-<div></div>
+<div>
+<p><strong><code>def addto(start, end):</code></strong><br/>定義了一個函式 <code>addto</code>，它接受兩個參數：</p>
+<ul>
+<li><code>start</code>：總和的起始值。</li>
+<li><code>end</code>：總和的結束值。</li>
+</ul>
+</div>
+<div>
+<ul>
+<li><strong><code>range(start, end + 1)</code></strong><br/>生成從 <code>start</code> 到 <code>end</code> 的一系列整數（包含 <code>end</code>，因為 <code>range</code> 的結束值是開區間，需加 <code>1</code>）。</li>
+<li><strong><code>sum(...)</code></strong><br/>使用 Python 內建的 <code>sum</code> 函數計算範圍內所有數字的總和。</li>
+<li><strong><code>return total</code></strong><br/>將計算的總和值回傳給呼叫此函式的地方。</li>
+</ul>
+<p>這段程式碼會計算 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>3</mn><mo>+</mo><mo>⋯</mo><mo>+</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">1 + 2 + 3 + \cdots + 100</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord">1</span><span class="mspace"></span><span class="mbin">+</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord">2</span><span class="mspace"></span><span class="mbin">+</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord">3</span><span class="mspace"></span><span class="mbin">+</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="minner">⋯</span><span class="mspace"></span><span class="mbin">+</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord">100</span></span></span></span> 的總和。數學公式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>總和</mtext><mo>=</mo><mfrac><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\text{總和} = \frac{n(n+1)}{2}</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord text"><span class="mord cjk_fallback">總和</span></span><span class="mspace"></span><span class="mrel">=</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span><span class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span><span class="pstrut"></span><span class="frac-line"></span></span><span><span class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mbin mtight">+</span>1<span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s"></span></span><span class="vlist-r"><span class="vlist"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>，當 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">n = 100</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord mathnormal">n</span><span class="mspace"></span><span class="mrel">=</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord">100</span></span></span></span> 時，總和為：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>總和</mtext><mo>=</mo><mfrac><mrow><mn>100</mn><mo>×</mo><mo stretchy="false">(</mo><mn>100</mn><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>2</mn></mfrac><mo>=</mo><mn>5050</mn></mrow><annotation encoding="application/x-tex">\text{總和} = \frac{100 \times (100 + 1)}{2} = 5050</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord text"><span class="mord cjk_fallback">總和</span></span><span class="mspace"></span><span class="mrel">=</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span><span class="pstrut"></span>2</span><span><span class="pstrut"></span><span class="frac-line"></span></span><span><span class="pstrut"></span>100<span class="mspace"></span><span class="mbin">×</span><span class="mspace"></span><span class="mopen">(</span>100<span class="mspace"></span><span class="mbin">+</span><span class="mspace"></span>1<span class="mclose">)</span></span></span><span class="vlist-s"></span></span><span class="vlist-r"><span class="vlist"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace"></span><span class="mrel">=</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord">5050</span></span></span></span></span></div>
+<div><span class="katex-display"><span class="katex"><span aria-hidden="true" class="katex-html"><span class="base"><span class="mord"></span></span></span></span></span></div>
 <div>題目3:</div>
 <div><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/03079d29fdc3ccfda9de2dbce5b26917/raw/d4968f2abfa019e83fb78605e25dea26c8d9d2d4/3.">add_only_even</a></div>
-<div></div>
-<div></div>
+<div>
+<ol>
+<li>
+<ul>
+<li><strong><code>range(start, end + 1)</code></strong>： 生成從 <code>start</code> 到 <code>end</code> 的整數範圍（包含 <code>end</code>，因為 <code>range</code> 的結束值是開區間，需要加 <code>1</code>）。</li>
+<li><strong><code>if i % 2 == 0</code></strong>： 使用條件判斷，只保留偶數，因為偶數可以被 2 整除（餘數為 0）。</li>
+<li><strong><code>sum(...)</code></strong>： 使用 Python 內建的 <code>sum</code> 函數將篩選出的偶數進行累加。</li>
+<li><strong><code>return total</code></strong>： 回傳偶數的總和。</li>
+</ul>
+</li>
+</ol>
+</div>
 <div>題目4:</div>
 <div><a href="https://mdecp2024.github.io/hw-Steven901128/content/Brython.html?src=https://gist.githubusercontent.com/Steven901128/03079d29fdc3ccfda9de2dbce5b26917/raw/d4968f2abfa019e83fb78605e25dea26c8d9d2d4/4.">add_avoid_8</a></div>
-<div></div>
-<div>心得:</div>
-<div>第一題是用for迴圈range提供數值每數一位數total變量就會加一次，直到100次為止。</div>
+<div>
+<ul>
+<li>
+<p><strong><code>def add_avoid_8(start, end):</code></strong><br/>定義函式，接受兩個參數：</p>
+<ul>
+<li><code>start</code>: 計算的起始值。</li>
+<li><code>end</code>: 計算的結束值。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>valid_numbers</code></strong><br/>使用列表生成式篩選符合條件的數字：</p>
+<ul>
+<li><strong><code>range(start, end + 1)</code></strong><br/>生成從 <code>start</code> 到 <code>end</code> 的整數範圍。</li>
+<li><strong><code>'8' not in str(x)</code></strong><br/>將數字轉換為字串，檢查是否包含字符 <code>'8'</code>，如果包含則排除。</li>
+<li><strong><code>x % 2 == 0</code></strong><br/>篩選偶數，因為偶數的條件是可以被 2 整除（餘數為 0）。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>print("符合條件的數字:", valid_numbers)</code></strong><br/>將篩選出的符合條件的數字打印出來，方便檢查過程。</p>
+</li>
+<li>
+<p><strong><code>return sum(valid_numbers)</code></strong><br/>將篩選出的數字累加並回傳結果。</p>
+</li>
+</ul>
+</div>
+<div>
+<ul>
+<li>
+<p><strong><code>add_avoid_8(1, 100)</code></strong><br/>計算從 <code>1</code> 到 <code>100</code> 範圍內，避開包含數字 '8' 和基數的總和。</p>
+</li>
+<li>
+<p><strong><code>result</code></strong><br/>儲存函式的回傳值（符合條件的數字總和）。</p>
+</li>
+<li>
+<p><strong>打印結果</strong>： 使用 <code>f-string</code> 將結果插入到字串中，並打印到螢幕上。</p>
+</li>
+</ul>
+<p></p>
+</div>
 <p>
 <script type="text/python3">
 from browser import html
@@ -746,8 +811,7 @@ def draw_circles():
 
 draw_circles()
 </script>
-</p>
-<h1>HW2</h1>
+</p><h1>HW2</h1>
 <p>
 <script type="text/python3">
 from browser import html
